@@ -33,4 +33,4 @@ class RealEmoji(commands.EmojiConverter):
                 raise commands.EmojiNotFound(argument)
             else:
                 emoji = argument
-        return 
+        return emoji
