@@ -253,7 +253,8 @@ class Roles(MixinMeta):
             return
         reason = get_audit_reason(ctx.author)
         await member.add_roles(role, reason=reason)
-        await ctx.send(f"Added **{role.name}** to **{member}**.")
+        embed = discord.Embed(description=f":white_check_mark: Added **{role.name}** to **{member.display_name}**", color=0xa5eb78)
+        await ctx.send(embed=embed)
 
     @commands.has_guild_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
@@ -269,7 +270,8 @@ class Roles(MixinMeta):
             return
         reason = get_audit_reason(ctx.author)
         await member.remove_roles(role, reason=reason)
-        await ctx.send(f"Removed **{role.name}** from **{member}**.")
+        embed = discord.Embed(description=f":white_check_mark: Removed **{role.name}** from **{member.display_name}**", color=0xa5eb78)
+        await ctx.send(embed=embed)
 
     @commands.has_guild_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
