@@ -1,0 +1,22 @@
+{
+    "name": "voicemaster",
+    "author": [
+        "strain-dev (strain#0001)"
+    ],
+    "short": "Automatic voice channel management.",
+    "description": "This cog facilitates automatic voice channel creation. When a member joins an AutoRoom Source (voice channel), this cog will move them to a brand new AutoRoom that they have control over. Once everyone leaves the AutoRoom, it is automatically deleted.",
+    "install_msg": "installed voicemaster, a fork from a git. servantcog fork",
+    "requirements": [
+        "pyparsing"
+    ],
+    "tags": [
+        "audio",
+        "auto",
+        "automatic",
+        "channel",
+        "room",
+        "voice"
+    ],
+    "min_bot_version": "3.4.8",
+    "end_user_data_statement": "This cog does not persistently store data or metadata about users."
+}
