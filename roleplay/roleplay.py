@@ -256,6 +256,9 @@ class Roleplay(BaseCog):
                 "https://media1.tenor.com/images/d9b3127da3f9419cbb28f9f7c00860d8/tenor.gif?itemid=9588226",
                 "https://media1.tenor.com/images/0097fa7f957477f9edc5ff147bb9a5ad/tenor.gif?itemid=12390496",
             ],
+            "hump": [
+                "https://68.media.tumblr.com/3db1897807d996da90bccc2d9d40d21d/tumblr_nzl9jxoqff1rxsmxwo1_500.gif",
+                ""
         }
         self.config.register_global(**default_global)
 
@@ -277,7 +280,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} hugs {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -297,7 +301,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} cuddles {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -317,7 +322,26 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} kisses {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
+                
+    @commands.command()
+    async def hump(self, ctx, *, user: discord.Member):
+        author = ctx.message.author
+        images = await self.config.hump()
+                
+        nekos = await self.fetch_nekos_file(ctx, "hump")
+        images.extend(nekos)
+                
+        mn = len(images)
+        i = randint(0, mn - 1)
+        # Building embed
+        embed = discord.Embed(color=discord.Colour.random())
+        embed.description = f"**{author.mention} humps {user.mention}**"
+        embed.set_image(url=images[i])
+        async with ctx.typing():
+            await ctx.send(embed=embed)
+         
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -337,7 +361,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} slaps {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -357,7 +382,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} pats {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -373,7 +399,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} licks {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -389,7 +416,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} highfives {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -409,7 +437,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} feeds {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -429,7 +458,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} tickles {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -449,7 +479,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} pokes {user.mention}**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -469,7 +500,8 @@ class Roleplay(BaseCog):
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} is smug**"
         embed.set_image(url=images[i])
-        await ctx.send(embed=embed)
+        async with ctx.typing():
+            await ctx.send(embed=embed)
 
     async def fetch_nekos_life(self, ctx, rp_action):
 
