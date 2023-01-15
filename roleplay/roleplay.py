@@ -1,5 +1,7 @@
 import discord
 from redbot.core import commands, Config
+import random
+
 from random import randint
 import aiohttp
 import logging
@@ -256,11 +258,10 @@ class Roleplay(BaseCog):
                 "https://media1.tenor.com/images/d9b3127da3f9419cbb28f9f7c00860d8/tenor.gif?itemid=9588226",
                 "https://media1.tenor.com/images/0097fa7f957477f9edc5ff147bb9a5ad/tenor.gif?itemid=12390496",
             ],
-            "hump": [
-                "https://68.media.tumblr.com/3db1897807d996da90bccc2d9d40d21d/tumblr_nzl9jxoqff1rxsmxwo1_500.gif",
-                ""
         }
         self.config.register_global(**default_global)
+
+    hump = ["https://68.media.tumblr.com/3db1897807d996da90bccc2d9d40d21d/tumblr_nzl9jxoqff1rxsmxwo1_500.gif", "https://i.gifer.com/68fR.gif", "http://31.media.tumblr.com/f3d3f237d7c70bd3251d0bdb603e6baf/tumblr_mu6dbxflq81rhm734o1_400.gif", "http://i.imgur.com/FzIMk.gif", "https://i.makeagif.com/media/4-18-2017/Tn0hw0.gif"]
 
     @commands.command()
     @commands.bot_has_permissions(embed_links=True)
@@ -338,7 +339,7 @@ class Roleplay(BaseCog):
         # Building embed
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} humps {user.mention}**"
-        embed.set_image(url=images[i])
+        embed.set_image(url=f"{random.choice(hump)}")
         async with ctx.typing():
             await ctx.send(embed=embed)
          
