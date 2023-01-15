@@ -329,13 +329,9 @@ class Roleplay(BaseCog):
     @commands.command()
     async def hump(self, ctx, *, user: discord.Member):
         author = ctx.message.author
-        images = await self.config.hump()
+
                 
-        nekos = await self.fetch_nekos_file(ctx, "hump")
-        images.extend(nekos)
-                
-        mn = len(images)
-        i = randint(0, mn - 1)
+
         # Building embed
         embed = discord.Embed(color=discord.Colour.random())
         embed.description = f"**{author.mention} humps {user.mention}**"
