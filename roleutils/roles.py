@@ -76,7 +76,7 @@ class Roles(MixinMeta):
     @commands.guild_only()
     @commands.group(invoke_without_command=True)
     async def role(
-        self, ctx: commands.Context, member: TouchableMember(False), *, role: StrictRole(False)
+        self, ctx: commands.Context, member: discord.Member, *, role: discord.Role
     ):
         """Base command for modifying roles.
 
@@ -244,7 +244,7 @@ class Roles(MixinMeta):
     @commands.has_guild_permissions(manage_roles=True)
     @commands.bot_has_permissions(manage_roles=True)
     @role.command("add")
-    async def role_add(self, ctx: commands.Context, member: TouchableMember, *, role: StrictRole):
+    async def role_add(self, ctx: commands.Context, member: discord.Member, *, role: discord.Role):
         """Add a role to a member."""
         if role in member.roles:
             await ctx.send(
